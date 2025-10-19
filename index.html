@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeWallpapers Galaxy - Premium & Free HD Wallpapers</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .wallpaper-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wallpaper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .premium-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(90deg, #f59e0b 0%, #f97316 100%);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .viewer-control {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 41, 59, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .viewer-control:hover {
+            background: rgba(30, 41, 59, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        #wallpaperViewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 90;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #viewerImage {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <!-- Navbar -->
+    <nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="image" class="text-amber-500 h-8 w-8 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900 dark:text-white">FreeWallpapers</span>
+                    </a>
+                </div>
+                <div class="flex-1 mx-4 max-w-xl">
+                    <div class="relative">
+                        <input type="text" placeholder="Search high-resolution photos..." 
+                            class="w-full bg-gray-100 dark:bg-slate-800 border-none rounded-full px-4 py-2 pl-10 focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-500 text-gray-900 dark:text-white">
+                        <i data-feather="search" class="absolute left-3 top-2.5 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="categories.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Categories</a>
+                    <a href="collections.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Collections</a>
+                    <button id="darkModeToggle" class="bg-transparent hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                        <i data-feather="moon" class="mr-2 h-4 w-4"></i>
+                        <span class="hidden md:inline">Dark Mode</span>
+                    </button>
+                    <a href="signup.html" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center">
+                        <i data-feather="user" class="mr-2 h-4 w-4"></i> Sign In
+                    </a>
+</div>
+<div class="-mr-2 flex md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="relative bg-gradient-to-b from-amber-50 to-white dark:from-slate-800 dark:to-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+                    Free High-Resolution Photos
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl text-gray-600 dark:text-gray-300">
+                    Beautiful, free images and photos sourced from talented creators worldwide.
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="trending.html" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-500 hover:bg-amber-600">Trending</a>
+                    <a href="categories.html?category=nature" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-amber-500 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700">Nature</a>
+                    <a href="categories.html?category=people" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-amber-500 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700">People</a>
+                    <a href="categories.html?category=technology" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-amber-500 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700">Technology</a>
+</div>
+            </div>
+        </div>
+    </div>
+<!-- Categories -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-2xl font-bold text-white mb-8">Browse Categories</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div class="bg-slate-800 rounded-lg p-4 text-center hover:bg-slate-700 cursor-pointer transition">
+                <div class="bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-feather="smartphone" class="text-amber-400"></i>
+                </div>
+                <span class="text-white">Mobile</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4 text-center hover:bg-slate-700 cursor-pointer transition">
+                <div class="bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-feather="monitor" class="text-amber-400"></i>
+                </div>
+                <span class="text-white">Desktop</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4 text-center hover:bg-slate-700 cursor-pointer transition">
+                <div class="bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-feather="tablet" class="text-amber-400"></i>
+                </div>
+                <span class="text-white">Tablet</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4 text-center hover:bg-slate-700 cursor-pointer transition">
+                <div class="bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-feather="cloud" class="text-amber-400"></i>
+                </div>
+                <span class="text-white">Nature</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4 text-center hover:bg-slate-700 cursor-pointer transition">
+                <div class="bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-feather="code" class="text-amber-400"></i>
+                </div>
+                <span class="text-white">Abstract</span>
+            </div>
+            <div class="bg-slate-800 rounded-lg p-4 text-center hover:bg-slate-700 cursor-pointer transition">
+                <div class="bg-slate-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <i data-feather="award" class="text-amber-400"></i>
+                </div>
+                <span class="text-white">Premium</span>
+            </div>
+        </div>
+    </div>
+    <!-- Photo Grid -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Featured Photos</h2>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <select class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2 pr-8 rounded-md text-sm focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-500">
+                        <option>All Orientations</option>
+                        <option>Landscape</option>
+                        <option>Portrait</option>
+                        <option>Square</option>
+                    </select>
+                </div>
+                <div class="relative">
+                    <select class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2 pr-8 rounded-md text-sm focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-500">
+                        <option>Popular</option>
+                        <option>Latest</option>
+                        <option>Most Viewed</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Photo Item -->
+            <div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <img src="https://source.unsplash.com/random/600x400/?nature" 
+                    alt="Nature" 
+                    class="w-full h-64 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-white text-sm font-medium">Nature Landscape</span>
+                        <div class="flex space-x-2">
+                            <button class="text-white hover:text-amber-400 transition-colors">
+                                <i data-feather="download" class="h-5 w-5"></i>
+                            </button>
+                            <button class="text-white hover:text-amber-400 transition-colors">
+                                <i data-feather="heart" class="h-5 w-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-white">
+                            <img src="https://source.unsplash.com/random/100x100/?portrait" alt="Photographer" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-white text-sm">John Doe</span>
+                    </div>
+                </div>
+            </div>
+<!-- Wallpaper Item 2 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <div class="premium-badge">Premium</div>
+                <img src="http://static.photos/abstract/640x360/2" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'Abstract Colors')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Abstract Colors</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">3840x2160</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="lock" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallpaper Item 3 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <img src="http://static.photos/cityscape/640x360/3" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'City Lights')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">City Lights</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">2560x1440</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="download" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallpaper Item 4 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <div class="premium-badge">Premium</div>
+                <img src="http://static.photos/space/640x360/4" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'Cosmic Wonder')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Cosmic Wonder</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">5120x2880</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="lock" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallpaper Item 5 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <img src="http://static.photos/minimal/640x360/5" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'Minimal Design')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Minimal Design</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">1920x1080</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="download" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallpaper Item 6 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <img src="http://static.photos/animals/640x360/6" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'Wildlife')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Wildlife</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">2560x1440</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="download" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallpaper Item 7 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <div class="premium-badge">Premium</div>
+                <img src="http://static.photos/technology/640x360/7" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'Tech Future')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Tech Future</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">3840x2160</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="lock" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wallpaper Item 8 -->
+            <div class="wallpaper-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <img src="http://static.photos/beach/640x360/8" alt="Wallpaper" class="w-full h-48 object-cover cursor-pointer" onclick="openWallpaperViewer(this.src, 'Tropical Beach')">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Tropical Beach</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">1920x1080</span>
+                        <div class="flex space-x-2">
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="download" class="h-4 w-4"></i>
+                            </button>
+                            <button class="text-gray-400 hover:text-white">
+                                <i data-feather="heart" class="h-4 w-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+            <button class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-md font-medium">
+                Load More Wallpapers
+            </button>
+        </div>
+    </div>
+
+    <!-- Wallpaper Viewer -->
+    <div id="wallpaperViewer">
+        <div class="viewer-control left-4" onclick="previousWallpaper()">
+            <i data-feather="chevron-left" class="text-white h-6 w-6"></i>
+        </div>
+        
+        <div class="text-center">
+            <h3 id="viewerTitle" class="text-white text-xl font-bold mb-4"></h3>
+            <img id="viewerImage" src="" alt="Wallpaper in viewer">
+            <div class="mt-6">
+                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-md font-medium mr-4">
+                    <i data-feather="download" class="inline mr-2"></i> Download
+                </button>
+                <button class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded-md font-medium" onclick="closeWallpaperViewer()">
+                    Close
+                </button>
+            </div>
+        </div>
+        
+        <div class="viewer-control right-4" onclick="nextWallpaper()">
+            <i data-feather="chevron-right" class="text-white h-6 w-6"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800/50 border-t border-slate-700 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">FreeWallpapers Galaxy</h3>
+                    <p class="text-gray-400 text-sm">
+                        The best place to find high quality wallpapers for all your devices. Free and premium collections.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Categories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Upload</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Premium</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Copyright</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">DMCA</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">
+                        Subscribe to our newsletter for updates
+                    </p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="bg-slate-700 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-amber-500 w-full">
+                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-r-md">
+                            <i data-feather="send" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-700">
+                <p class="text-gray-500 text-sm text-center">
+                    &copy; 2023 FreeWallpapers Galaxy. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Download free high-quality wallpapers for desktop, mobile and tablet. Thousands of HD wallpapers in nature, technology, abstract and more categories.">
+        <meta name="keywords" content="free wallpapers, HD wallpapers, desktop backgrounds, phone wallpapers, nature wallpapers, technology wallpapers">
+        <meta name="author" content="FreeWallpapers Galaxy">
+        <meta property="og:title" content="FreeWallpapers Galaxy - Premium & Free HD Wallpapers">
+        <meta property="og:description" content="Download free high-quality wallpapers for all your devices">
+        <meta property="og:image" content="http://static.photos/nature/1200x630/1">
+        <meta property="og:url" content="https://freewallpapersgalaxy.com">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <script>
+        // Initialize dark mode from localStorage
+        function initDarkMode() {
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const isDark = localStorage.getItem('darkMode') === 'true';
+            
+            document.documentElement.classList.toggle('dark', isDark);
+            darkModeToggle.innerHTML = isDark ? 
+                '<i data-feather="sun" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Light Mode</span>' : 
+                '<i data-feather="moon" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Dark Mode</span>';
+            
+            darkModeToggle.addEventListener('click', function() {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', isDark);
+                darkModeToggle.innerHTML = isDark ? 
+                    '<i data-feather="sun" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Light Mode</span>' : 
+                    '<i data-feather="moon" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Dark Mode</span>';
+                feather.replace();
+            });
+        }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initDarkMode();
+            feather.replace();
+            
+            // Make all links work properly
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
+// Wallpaper viewer functionality
+let currentWallpaperIndex = 0;
+        const wallpapers = [
+            { src: "http://static.photos/nature/640x360/1", title: "Nature Landscape" },
+            { src: "http://static.photos/abstract/640x360/2", title: "Abstract Colors" },
+            { src: "http://static.photos/cityscape/640x360/3", title: "City Lights" },
+            { src: "http://static.photos/space/640x360/4", title: "Cosmic Wonder" },
+            { src: "http://static.photos/minimal/640x360/5", title: "Minimal Design" },
+            { src: "http://static.photos/animals/640x360/6", title: "Wildlife" },
+            { src: "http://static.photos/technology/640x360/7", title: "Tech Future" },
+            { src: "http://static.photos/beach/640x360/8", title: "Tropical Beach" }
+        ];
+        
+        function openWallpaperViewer(src, title) {
+            currentWallpaperIndex = wallpapers.findIndex(w => w.src === src);
+            document.getElementById('viewerImage').src = src;
+            document.getElementById('viewerTitle').textContent = title;
+            document.getElementById('wallpaperViewer').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeWallpaperViewer() {
+            document.getElementById('wallpaperViewer').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        function nextWallpaper() {
+            currentWallpaperIndex = (currentWallpaperIndex + 1) % wallpapers.length;
+            updateViewer();
+        }
+        
+        function previousWallpaper() {
+            currentWallpaperIndex = (currentWallpaperIndex - 1 + wallpapers.length) % wallpapers.length;
+            updateViewer();
+        }
+        
+        function updateViewer() {
+            const wallpaper = wallpapers[currentWallpaperIndex];
+            document.getElementById('viewerImage').src = wallpaper.src;
+            document.getElementById('viewerTitle').textContent = wallpaper.title;
+        }
+        
+        // Close viewer when clicking outside the image
+        document.getElementById('wallpaperViewer').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWallpaperViewer();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('wallpaperViewer').style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    closeWallpaperViewer();
+                } else if (e.key === 'ArrowRight') {
+                    nextWallpaper();
+                } else if (e.key === 'ArrowLeft') {
+                    previousWallpaper();
+                }
+            }
+        });
+    </script>
+    
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
