@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Landscape - FreeWallpapers</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="image" class="text-amber-500 h-8 w-8 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900 dark:text-white">FreeWallpapers</span>
+                    </a>
+                </div>
+                <div class="flex-1 mx-4 max-w-xl">
+                    <div class="relative">
+                        <input type="text" placeholder="Search high-resolution photos..." 
+                            class="w-full bg-gray-100 dark:bg-slate-800 border-none rounded-full px-4 py-2 pl-10 focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-500 text-gray-900 dark:text-white">
+                        <i data-feather="search" class="absolute left-3 top-2.5 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="categories.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Categories</a>
+                    <a href="collections.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Collections</a>
+                    <button class="bg-transparent hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                        <i data-feather="moon" class="mr-2 h-4 w-4"></i>
+                        <span class="hidden md:inline">Dark Mode</span>
+                    </button>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center">
+                        <i data-feather="user" class="mr-2 h-4 w-4"></i> Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Photo Detail -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <div class="bg-gray-100 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://source.unsplash.com/random/1600x900/?nature" 
+                        alt="Nature Landscape" 
+                        class="w-full h-auto max-h-[80vh] object-contain"
+                        loading="lazy">
+                </div>
+                
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <button class="flex-1 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center">
+                        <i data-feather="download" class="mr-2"></i> Download Free
+                    </button>
+                    <div class="flex-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-md">
+                        <select class="w-full bg-transparent px-4 py-3 text-gray-900 dark:text-white focus:outline-none">
+                            <option>Original (6000x4000)</option>
+                            <option>Large (1920x1280)</option>
+                            <option>Medium (1280x853)</option>
+                            <option>Small (640x427)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex space-x-4">
+                    <button class="text-gray-500 hover:text-amber-500 dark:hover:text-amber-400">
+                        <i data-feather="heart" class="h-5 w-5"></i>
+                    </button>
+                    <button class="text-gray-500 hover:text-amber-500 dark:hover:text-amber-400">
+                        <i data-feather="bookmark" class="h-5 w-5"></i>
+                    </button>
+                    <button class="text-gray-500 hover:text-amber-500 dark:hover:text-amber-400">
+                        <i data-feather="share-2" class="h-5 w-5"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-1">
+                <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="h-12 w-12 rounded-full overflow-hidden border-2 border-amber-400">
+                            <img src="https://source.unsplash.com/random/100x100/?portrait" alt="Photographer" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">John Doe</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">2,500+ Photos</p>
+                        </div>
+                        <button class="ml-auto bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md text-sm font-medium">
+                            Follow
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Title</h4>
+                            <p class="text-gray-900 dark:text-white">Nature Landscape</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Description</h4>
+                            <p class="text-gray-900 dark:text-white">Beautiful mountain landscape with sunset colors reflecting on a calm lake.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Dimensions</h4>
+                            <p class="text-gray-900 dark:text-white">6000 × 4000 pixels • 300 DPI • 20.3 MB</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Camera</h4>
+                            <p class="text-gray-900 dark:text-white">Canon EOS 5D Mark IV • 24mm • f/8 • 1/250s • ISO 100</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Location</h4>
+                            <p class="text-gray-900 dark:text-white">Banff National Park, Canada</p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Tags</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="#" class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">nature</a>
+                                <a href="#" class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">mountains</a>
+                                <a href="#" class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">lake</a>
+                                <a href="#" class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">sunset</a>
+                                <a href="#" class="text-xs bg-gray-100 dark:bg-slate-700 text-gray-800 dark:text-gray-200 px-2 py-1 rounded-full">landscape</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700">
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-4">License Information</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                        This photo is available under our <a href="#" class="text-amber-500 hover:text-amber-600 dark:hover:text-amber-400">Free License</a>, which allows:
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2 mt-0.5 flex-shrink-0 h-4 w-4"></i>
+                            <span>Free to use for personal and commercial projects</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-500 mr-2 mt-0.5 flex-shrink-0 h-4 w-4"></i>
+                            <span>No attribution required (though appreciated)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="alert-triangle" class="text-yellow-500 mr-2 mt-0.5 flex-shrink-0 h-4 w-4"></i>
+                            <span>Cannot be redistributed or sold as-is</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Related Photos -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Related Photos</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://source.unsplash.com/random/600x400/?mountain" 
+                        alt="Mountain" 
+                        class="w-full h-64 object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-white text-sm font-medium">Mountain Peak</span>
+                            <div class="flex space-x-2">
+                                <button class="text-white hover:text-amber-400 transition-colors">
+                                    <i data-feather="download" class="h-5 w-5"></i>
+                                </button>
+                                <button class="text-white hover:text-amber-400 transition-colors">
+                                    <i data-feather="heart" class="h-5 w-5"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="h-8 w-8 rounded-full overflow-hidden border-2 border-white">
+                                <img src="https://source.unsplash.com/random/100x100/?portrait" alt="Photographer" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-white text-sm">Jane Smith</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- More related photos would go here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">FreeWallpapers</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">
+                        The internet's source of freely usable images. Powered by creators everywhere.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">About</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">FAQ</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">API</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Tools</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="facebook" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="twitter" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="instagram" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="youtube" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-700">
+                <p class="text-gray-500 dark:text-gray-400 text-sm text-center">
+                    &copy; 2023 FreeWallpapers. All photos are shared under our Free License.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Make download button work
+            document.querySelector('.bg-amber-500').addEventListener('click', function() {
+                alert('Starting download...');
+                // In a real implementation, this would trigger the download
+            });
+
+            // Make all links work
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
+            });
+
+            // Initialize dark mode toggle if it exists
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', function() {
+                    const isDark = document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('darkMode', isDark);
+                    darkModeToggle.innerHTML = isDark ? 
+                        '<i data-feather="sun" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Light Mode</span>' : 
+                        '<i data-feather="moon" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Dark Mode</span>';
+                    feather.replace();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
