@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - FreeWallpapers</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i data-feather="image" class="text-amber-500 h-8 w-8 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900 dark:text-white">FreeWallpapers</span>
+                    </a>
+                </div>
+                <div class="flex-1 mx-4 max-w-xl">
+                    <div class="relative">
+                        <input type="text" placeholder="Search high-resolution photos..." 
+                            class="w-full bg-gray-100 dark:bg-slate-800 border-none rounded-full px-4 py-2 pl-10 focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-500 text-gray-900 dark:text-white">
+                        <i data-feather="search" class="absolute left-3 top-2.5 text-gray-500 dark:text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                    <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="categories.html" class="text-amber-500 dark:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Categories</a>
+                    <a href="collections.html" class="text-gray-700 dark:text-gray-300 hover:text-amber-500 dark:hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium">Collections</a>
+                    <button class="bg-transparent hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-md text-sm font-medium flex items-center">
+                        <i data-feather="moon" class="mr-2 h-4 w-4"></i>
+                        <span class="hidden md:inline">Dark Mode</span>
+                    </button>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center">
+                        <i data-feather="user" class="mr-2 h-4 w-4"></i> Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Browse by Category</h1>
+            <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Discover millions of high-resolution photos organized into intuitive categories
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?nature" 
+                    alt="Nature" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Nature</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?business" 
+                    alt="Business" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Business</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?people" 
+                    alt="People" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">People</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?technology" 
+                    alt="Technology" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Technology</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?animal" 
+                    alt="Animals" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Animals</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?food" 
+                    alt="Food" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Food</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?travel" 
+                    alt="Travel" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Travel</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?architecture" 
+                    alt="Architecture" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Architecture</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?fashion" 
+                    alt="Fashion" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Fashion</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?sports" 
+                    alt="Sports" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Sports</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?abstract" 
+                    alt="Abstract" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Abstract</h3>
+                </div>
+            </a>
+            
+            <!-- Category Item -->
+            <a href="#" class="group relative rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-48">
+                <img src="https://source.unsplash.com/random/400x300/?art" 
+                    alt="Art" 
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                    <h3 class="text-white font-medium">Art</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 mt-16">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">FreeWallpapers</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">
+                        The internet's source of freely usable images. Powered by creators everywhere.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">About</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">FAQ</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">API</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Tools</a></li>
+                        <li><a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 text-sm">Community</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="facebook" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="twitter" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="instagram" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-amber-500 dark:hover:text-amber-400">
+                            <i data-feather="youtube" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-200 dark:border-slate-700">
+                <p class="text-gray-500 dark:text-gray-400 text-sm text-center">
+                    &copy; 2023 FreeWallpapers. All photos are shared under our Free License.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Make all category cards clickable
+            document.querySelectorAll('.grid a').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        // In a real implementation, this would filter by category
+                        alert('Loading wallpapers for ' + this.querySelector('h3').textContent);
+                    }
+                });
+            });
+
+            // Initialize dark mode toggle if it exists
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', function() {
+                    const isDark = document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('darkMode', isDark);
+                    darkModeToggle.innerHTML = isDark ? 
+                        '<i data-feather="sun" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Light Mode</span>' : 
+                        '<i data-feather="moon" class="mr-2 h-4 w-4"></i><span class="hidden md:inline">Dark Mode</span>';
+                    feather.replace();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
