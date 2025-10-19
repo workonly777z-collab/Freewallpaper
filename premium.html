@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Wallpapers - FreeWallpapers Galaxy</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .premium-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .premium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(245, 158, 11, 0.2);
+        }
+        
+        .premium-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(90deg, #f59e0b 0%, #f97316 100%);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .premium-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="premium-gradient">
+    <!-- Navbar -->
+    <nav class="bg-slate-800/50 backdrop-blur-md sticky top-0 z-50 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="image" class="text-amber-400 h-8 w-8 mr-2"></i>
+                        <span class="text-xl font-bold text-white">FreeWallpapers Galaxy</span>
+                    </div>
+                </div>
+                <div id="authButtons" class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Premium Hero -->
+    <div class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+            <div class="text-center relative z-10">
+                <div class="inline-flex items-center bg-amber-500/10 px-4 py-2 rounded-full mb-6">
+                    <span class="text-amber-400 font-medium">Premium Content</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Exclusive High-Quality Wallpapers</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">Unlock our premium collection of 8K ultra HD wallpapers with exclusive designs you won't find anywhere else.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#premium-wallpapers" class="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg">Browse Premium</a>
+                    <a href="signup.html" class="px-6 py-3 bg-transparent hover:bg-slate-800 text-white border border-amber-500 font-medium rounded-lg">Get Full Access</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900"></div>
+        </div>
+    </div>
+
+    <!-- Premium Features -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <i data-feather="download" class="text-amber-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Unlimited Downloads</h3>
+                <p class="text-gray-400">Download as many wallpapers as you want without any restrictions or watermarks.</p>
+            </div>
+            <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <i data-feather="award" class="text-amber-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Highest Quality</h3>
+                <p class="text-gray-400">8K resolution wallpapers optimized for all devices with perfect color grading.</p>
+            </div>
+            <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <i data-feather="clock" class="text-amber-400"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Weekly Updates</h3>
+                <p class="text-gray-400">Fresh premium wallpapers added every week to keep your devices looking fresh.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Wallpapers -->
+    <div id="premium-wallpapers" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-2xl font-bold text-white">Premium Wallpapers</h2>
+            <div class="relative">
+                <select class="bg-slate-800 border border-slate-700 text-white px-4 py-2 pr-8 rounded-md text-sm focus:ring-2 focus:ring-amber-500">
+                    <option>Most Popular</option>
+                    <option>Newest First</option>
+                    <option>Highest Resolution</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Premium Wallpaper Items -->
+            <div class="premium-card bg-slate-800 rounded-lg overflow-hidden relative">
+                <div class="premium-badge">Premium</div>
+                <img src="http://static.photos/nature/640x360/101" alt="Wallpaper" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="text-white font-medium mb-2">Cosmic Galaxy</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">7680x4320</span>
+                        <button class="text-amber-400 hover:text-amber-300 font-medium">
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- More premium wallpapers would go here -->
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="bg-slate-800/50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Choose the plan that works best for you. Cancel anytime.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-slate-800 rounded-xl p-8 border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-2">Monthly</h3>
+                    <p class="text-gray-400 mb-6">Perfect for trying out premium features</p>
+                    <div class="text-4xl font-bold text-white mb-6">$9.99<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Full premium access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Weekly updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Cancel anytime</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-slate-700 hover:bg-slate-600 text-white py-3 px-6 rounded-lg font-medium">
+                        Choose Monthly
+                    </button>
+                </div>
+                
+                <div class="bg-slate-800 rounded-xl p-8 border-2 border-amber-500 relative">
+                    <div class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-bl rounded-tr">
+                        MOST POPULAR
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Yearly</h3>
+                    <p class="text-gray-400 mb-6">Best value with 2 months free</p>
+                    <div class="text-4xl font-bold text-white mb-6">$69.99<span class="text-lg text-gray-400">/year</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Full premium access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Weekly updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Exclusive content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Save $50</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-amber-500 hover:bg-amber-600 text-white py-3 px-6 rounded-lg font-medium">
+                        Choose Yearly
+                    </button>
+                </div>
+                
+                <div class="bg-slate-800 rounded-xl p-8 border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-2">Lifetime</h3>
+                    <p class="text-gray-400 mb-6">One-time payment for permanent access</p>
+                    <div class="text-4xl font-bold text-white mb-6">$199<span class="text-lg text-gray-400">one-time</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Full premium access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Lifetime updates</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Exclusive content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="check" class="text-green-400 mr-2 mt-1"></i>
+                            <span class="text-gray-300">Priority support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-slate-700 hover:bg-slate-600 text-white py-3 px-6 rounded-lg font-medium">
+                        Choose Lifetime
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Check login status
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const authButtons = document.getElementById('authButtons');
+            
+            if (isLoggedIn) {
+                const userEmail = localStorage.getItem('userEmail') || '';
+                authButtons.innerHTML = `
+                    <span class="text-gray-300">Welcome, ${userEmail}</span>
+                    <button onclick="logout()" class="bg-transparent hover:bg-slate-700 text-gray-300 px-4 py-2 rounded-md text-sm font-medium">
+                        Logout
+                    </button>
+                `;
+            } else {
+                authButtons.innerHTML = `
+                    <a href="login.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                    <a href="signup.html" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-md text-sm font-medium">Sign Up</a>
+                `;
+            }
+            
+            // Make download buttons work
+            document.querySelectorAll('.premium-card button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!isLoggedIn) {
+                        alert('Please login to download premium wallpapers');
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('Starting download... (simulated)');
+                    }
+                });
+            });
+            
+            // Make pricing buttons work
+            document.querySelectorAll('.bg-amber-500, .bg-slate-700').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!isLoggedIn) {
+                        alert('Please create an account first');
+                        window.location.href = 'signup.html';
+                    } else {
+                        alert('Redirecting to payment... (simulated)');
+                    }
+                });
+            });
+            
+            window.logout = function() {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userEmail');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
